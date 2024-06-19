@@ -54,42 +54,4 @@ jobs:
                   command: pages deploy --project-name=ente --commit-dirty=true --branch=main web/apps/photos/out
                   branch: main
 
-            - name: Build accounts
-              run: yarn build:accounts
-
-            - name: Publish accounts
-              uses: cloudflare/wrangler-action@v3
-              with:
-                  accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-                  apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-                  command: pages deploy --project-name=ente --commit-dirty=true --branch=deploy/accounts web/apps/accounts/out
-
-            - name: Build auth
-              run: yarn build:auth
-
-            - name: Publish auth
-              uses: cloudflare/wrangler-action@v3
-              with:
-                  accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-                  apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-                  command: pages deploy --project-name=ente --commit-dirty=true --branch=deploy/auth web/apps/auth/out
-
-            - name: Build cast
-              run: yarn build:cast
-
-            - name: Publish cast
-              uses: cloudflare/wrangler-action@v3
-              with:
-                  accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-                  apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-                  command: pages deploy --project-name=ente --commit-dirty=true --branch=deploy/cast web/apps/cast/out
-
-            - name: Build payments
-              run: yarn build:payments
-
-            - name: Publish payments
-              uses: cloudflare/wrangler-action@v3
-              with:
-                  accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-                  apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-                  command: pages deploy --project-name=ente --commit-dirty=true --branch=deploy/payments web/apps/payments/dist
+            
